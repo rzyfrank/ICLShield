@@ -51,7 +51,7 @@ def get_embeddings(texts):
     ).to(device)
     with torch.no_grad():
         outputs = model(**inputs, output_hidden_states=True)
-    last_hidden_state = outputs.hidden_states[-1]  
+    last_hidden_state = outputs.hidden_states[-1]
     embeddings = last_hidden_state.mean(dim=1)
     return embeddings.cpu().numpy()
 
